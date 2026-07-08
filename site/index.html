@@ -143,8 +143,15 @@ section{padding:clamp(72px,10vw,140px) 0;position:relative}
   font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--dim)}
 
 /* key art band */
-.keyart{margin-top:56px;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:#04070a}
-.keyart img{width:100%;height:auto}
+.keyart{margin-top:56px;border-radius:20px;overflow:hidden;border:1px solid var(--line);
+  background:radial-gradient(ellipse 55% 95% at 50% 128%,#0d1922 0%,#000 62%)}
+.keyart img{width:100%;height:auto;
+  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 13%);
+  mask-image:linear-gradient(180deg,transparent 0,#000 13%)}
+.keyart .ktx{padding:clamp(30px,4.5vw,58px) 20px 0;text-align:center;
+  font-weight:500;font-size:clamp(21px,3vw,42px);line-height:1.3;letter-spacing:.01em;color:var(--ink)}
+.keyart .ktx .tg{color:#2fbd82}
+.keyart .ktx small{display:block;font-size:clamp(18px,2.4vw,34px);font-weight:400;color:var(--ink)}
 
 /* film */
 #film .poster{position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);cursor:pointer;display:block;width:100%;padding:0;background:none}
@@ -348,7 +355,8 @@ footer{border-top:1px solid var(--line);padding:54px 0 70px;background:#050606}
       </div>
     </div>
     <figure class="keyart rv">
-      <img src="assets/tm7-key.webp" alt="Thermomix like never before — the all new TM7" loading="lazy">
+      <p class="ktx"><span class="tg">Thermomix</span> like never before.<small>The all new <span class="tg">TM7</span>.</small></p>
+      <img src="assets/tm7-key.webp" alt="The all new Thermomix TM7, glowing green in the dark" loading="lazy">
     </figure>
   </div>
 </section>
