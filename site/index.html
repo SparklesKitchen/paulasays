@@ -72,7 +72,8 @@ header.hero{position:relative;min-height:100svh;display:flex;flex-direction:colu
   linear-gradient(180deg,rgba(7,8,8,.55),rgba(7,8,8,.18) 34%,rgba(7,8,8,.34) 62%,rgba(7,8,8,.97) 96%)}
 .hero-in{position:relative;z-index:2;padding-bottom:clamp(40px,6vh,84px)}
 .hero h1{font-size:clamp(48px,8.4vw,124px);line-height:.98;margin:.28em 0 .22em}
-.hero h1 .q{color:var(--green)}
+.hero h1 .g{color:var(--green);font-weight:340}
+.hero h1 .q{color:var(--ink);font-style:normal}
 .hero h1 em{font-weight:340}
 .hero .lede{max-width:560px;color:#cfd6d0;font-size:clamp(16px,1.35vw,19px);line-height:1.65}
 .hero .lede strong{color:var(--ink);font-weight:500}
@@ -118,10 +119,36 @@ section{padding:clamp(72px,10vw,140px) 0;position:relative}
 .card .num{font-family:"Fraunces",serif;font-style:italic;color:var(--green);font-size:15px;letter-spacing:.08em}
 .card h3{font-size:21px;margin:12px 0 10px;font-weight:420}
 .card p{color:var(--dim);font-size:14.5px;line-height:1.65}
-.reveal-band{margin-top:22px;border-radius:20px;overflow:hidden;border:1px solid var(--line);position:relative}
-.reveal-band img{width:100%;height:clamp(260px,38vw,480px);object-fit:cover;filter:brightness(1.06)}
-.reveal-band figcaption{position:absolute;left:26px;bottom:20px;font-size:12px;letter-spacing:.22em;
-  text-transform:uppercase;color:var(--dim)}
+/* cooking modes explorer */
+.modes{margin-top:56px}
+.modes h3{font-size:clamp(22px,2.4vw,30px);font-weight:420;margin-bottom:6px}
+.modes .sub{color:var(--dim);font-size:14.5px;margin-bottom:22px}
+.chiprow{display:flex;flex-wrap:wrap;gap:10px}
+.mchip{border:1px solid var(--line);background:var(--panel);color:var(--dim);border-radius:999px;
+  padding:10px 20px;font-size:13.5px;letter-spacing:.05em;cursor:pointer;font-family:inherit;font-weight:400;
+  transition:all .35s var(--ease)}
+.mchip:hover{color:var(--ink);border-color:var(--dim)}
+.mchip.on{background:var(--green);border-color:var(--green);color:#04130c;font-weight:500}
+.mpanel{margin-top:20px;border:1px solid var(--line);border-radius:18px;
+  padding:clamp(24px,3.5vw,40px);background:linear-gradient(180deg,var(--panel2),var(--panel));
+  display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(20px,4vw,48px);align-items:center;
+  box-shadow:0 0 60px -30px rgba(47,189,130,.25)}
+@media(max-width:760px){.mpanel{grid-template-columns:1fr}}
+.mpanel h4{font-family:"Fraunces",serif;font-weight:420;font-size:clamp(24px,2.8vw,34px);margin-bottom:12px}
+.mpanel h4 i{font-style:italic;color:var(--green);font-weight:340}
+.mpanel .blurb{color:#c6cdc7;font-size:15.5px;line-height:1.7}
+.mpanel .quip{font-family:"Fraunces",serif;font-style:italic;font-size:clamp(18px,1.9vw,23px);
+  line-height:1.5;color:var(--ink);border-left:2px solid var(--green);padding-left:22px}
+.mpanel .quip .who{display:block;margin-top:10px;font-family:"Outfit",sans-serif;font-style:normal;
+  font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--dim)}
+
+/* key art band */
+.keyart{margin-top:56px;border-radius:20px;overflow:hidden;border:1px solid var(--line);position:relative}
+.keyart img{width:100%;height:clamp(340px,46vw,600px);object-fit:cover;object-position:50% 62%}
+.keyart .ktx{position:absolute;top:clamp(26px,4.5vw,54px);left:0;right:0;text-align:center;
+  font-weight:500;font-size:clamp(20px,2.9vw,40px);line-height:1.3;letter-spacing:.01em}
+.keyart .ktx .tg{color:#2fbd82}
+.keyart .ktx small{display:block;font-size:clamp(17px,2.3vw,32px);font-weight:400;color:var(--ink)}
 
 /* film */
 #film .poster{position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);cursor:pointer;display:block;width:100%;padding:0;background:none}
@@ -267,7 +294,7 @@ footer{border-top:1px solid var(--line);padding:54px 0 70px;background:#050606}
   <div class="veil"></div>
   <div class="wrap hero-in">
     <div class="kicker">Independent Thermomix® Diamond Team Leader</div>
-    <h1>Paula says<span class="q">:</span><br><em>the kitchen should work<br>as hard as you do.</em></h1>
+    <h1>Paula <em class="g">says</em><span class="q">:</span><br><em>the kitchen should work<br>as hard as you do.</em></h1>
     <p class="lede">One machine that weighs, chops, kneads, steams, sears the onions and washes itself —
       <strong>demonstrated free, in your own kitchen,</strong> by someone who cooks with it every single day.</p>
     <div class="hero-ctas">
@@ -315,9 +342,18 @@ footer{border-top:1px solid var(--line);padding:54px 0 70px;background:#050606}
       <div class="card rv"><div class="num">06</div><h3>Quietly brilliant</h3>
         <p>30% quieter than before, with one-touch modes and a self-cleaning programme for the bit nobody loves.</p></div>
     </div>
-    <figure class="reveal-band rv">
-      <img src="assets/tm7-reveal.webp" alt="The Thermomix TM7 emerging from darkness" loading="lazy">
-      <figcaption>The all-new TM7 · complete meals, one machine</figcaption>
+    <div class="modes rv">
+      <h3>Press a button. <em style="color:var(--green)">Ask it anything.</em></h3>
+      <p class="sub">Twenty-plus cooking modes in one machine — tap through what it can actually do.</p>
+      <div class="chiprow" id="chiprow" role="tablist" aria-label="Cooking modes"></div>
+      <div class="mpanel" id="mpanel" role="tabpanel">
+        <div><h4 id="m-name"></h4><p class="blurb" id="m-blurb"></p></div>
+        <p class="quip"><span id="m-quip"></span><span class="who">— Paula says</span></p>
+      </div>
+    </div>
+    <figure class="keyart rv">
+      <img src="assets/tm7-key.webp" alt="The all-new Thermomix TM7, lit green in the dark" loading="lazy">
+      <p class="ktx"><span class="tg">Thermomix</span> like never before.<small>The all new <span class="tg">TM7</span>.</small></p>
     </figure>
   </div>
 </section>
@@ -530,6 +566,38 @@ document.getElementById('playFilm').addEventListener('click', () => { box.showMo
 box.querySelector('.close').addEventListener('click', () => { vid.pause(); box.close(); });
 box.addEventListener('close', () => vid.pause());
 box.addEventListener('click', e => { if (e.target === box) { vid.pause(); box.close(); } });
+
+// cooking modes explorer
+const MODES = [
+  ['Steam · Varoma', 'Complete meals in one go — fish above, vegetables below, sauce in the bowl. The Varoma steams a whole dinner in layers while the machine minds the temperature.', 'Three things cook. I do none of them.'],
+  ['Slow cook', 'Low, patient, precise heat for hours — brisket, ragù, short ribs — without a hob to babysit or a lid to check.', 'Short ribs on a Tuesday. Because the machine did Monday.'],
+  ['Sous-vide', 'Restaurant-grade water-bath cooking with exact temperature control. Steak arrives blushing pink, edge to edge, every single time.', 'Steakhouse pink, no steakhouse bill.'],
+  ['Knead', 'Proper dough development — bread, pizza, brioche — with a dedicated kneading motion that would tire out your stand mixer and your wrists.', 'Bakery bread, and the machine cleans the sticky bowl itself.'],
+  ['Rice cooker', 'Perfect rice and grains with no timing anxiety — plus porridge that stirs itself while you find your keys.', 'The end of crunchy-bottom rice in my house.'],
+  ['Blend', 'From silky soups to smoothies at 10,700 rpm — a blade that laughs at frozen fruit and turns yesterday\'s roast bones into tomorrow\'s broth base.', 'Soup so smooth guests ask which restaurant it came from.'],
+  ['Ferment', 'Warm, steady, hands-off fermentation — yoghurt overnight, dough proofed properly, even homemade crème fraîche.', 'I make yoghurt in my sleep. Literally.'],
+  ['Weigh', 'Built-in scales weigh straight into the bowl as you pour — no cups, no washing-up mountain, no maths.', 'The washing-up basket has never been emptier.'],
+  ['Chop', 'From rough-chopped onions to a fine herb dust in seconds — you choose the coarseness, it does the crying.', 'It chops the onions. I take the credit.'],
+  ['Emulsify', 'Mayonnaise, hollandaise, aioli — the sauces with a reputation, whipped stable in under a minute.', 'Hollandaise without fear. Imagine that.'],
+  ['Open cooking', 'Your recipes, your rules — manual control of time, temperature and speed when you want to freestyle.', 'Some days I\'m the boss. It copes.'],
+  ['Self-clean', 'A drop of soap, warm water, one touch — the bowl scrubs itself while you eat.', 'My favourite mode, and I\'m not ashamed.'],
+];
+const chiprow = document.getElementById('chiprow');
+const mName = document.getElementById('m-name'), mBlurb = document.getElementById('m-blurb'), mQuip = document.getElementById('m-quip');
+MODES.forEach(([name], i) => {
+  const b = document.createElement('button');
+  b.className = 'mchip'; b.textContent = name; b.setAttribute('role','tab');
+  b.addEventListener('click', () => selectMode(i));
+  chiprow.appendChild(b);
+});
+function selectMode(i) {
+  [...chiprow.children].forEach((c, j) => c.classList.toggle('on', i === j));
+  const [name, blurb, quip] = MODES[i];
+  mName.innerHTML = name.replace('·', '<i>·</i>');
+  mBlurb.textContent = blurb;
+  mQuip.textContent = '“' + quip + '”';
+}
+selectMode(0);
 
 // earnings calculator
 const demos = document.getElementById('demos');
