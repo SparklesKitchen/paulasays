@@ -244,7 +244,7 @@ form .btn{margin-top:22px}
   color:var(--green);font-size:20px;flex:none}
 
 /* join */
-#join .grid2{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,72px);align-items:start}
+#join .grid2{display:grid;grid-template-columns:1fr;max-width:720px;gap:clamp(28px,5vw,72px);align-items:start}
 @media(max-width:940px){#join .grid2{grid-template-columns:1fr}}
 .steps{display:grid;gap:14px;margin-top:8px}
 .step{display:flex;gap:18px;border:1px solid var(--line);border-radius:16px;padding:18px 20px;background:var(--panel)}
@@ -511,19 +511,7 @@ footer{border-top:1px solid var(--line);padding:54px 0 70px;background:#050606}
         <div class="step"><span class="n">4</span><div><b>Trained by Paula, personally</b>
           <span>One-to-one training and a supportive network of advisors behind you from day one.</span></div></div>
       </div>
-      <div class="calc rv">
-        <h3>What could you earn?</h3>
-        <p class="sub">Drag the slider — demonstrations you could host per month.</p>
-        <label class="per" for="demos" style="letter-spacing:.12em">Demos per month: <span id="dcount">6</span></label>
-        <input type="range" id="demos" min="2" max="20" value="6" step="1">
-        <div class="scale"><span>2</span><span>20</span></div>
-        <span class="per">Estimated commission*</span>
-        <output id="earn">£450 / month</output>
-        <span class="per" id="yearly">≈ £5,400 a year</span>
-        <p class="note">*Illustration only: assumes roughly one sale per two demonstrations at £150
-          per sale, after your first six sales (which make your own TM7 free). Team bonuses not included.</p>
         <a class="btn green" style="margin-top:24px" href="https://wa.me/447771780250?text=Hi%20Paula%2C%20I%27d%20love%20to%20hear%20about%20joining%20your%20Thermomix%20team." target="_blank" rel="noopener">Ask Paula about joining</a>
-      </div>
     </div>
   </div>
 </section>
@@ -611,21 +599,7 @@ function selectMode(i) {
 }
 selectMode(0);
 
-// earnings calculator
-const demos = document.getElementById('demos');
-const dcount = document.getElementById('dcount');
-const earn = document.getElementById('earn');
-const yearly = document.getElementById('yearly');
-function calc() {
-  const d = +demos.value;
-  dcount.textContent = d;
-  const sales = Math.round(d / 2);
-  const m = sales * 150;
-  earn.textContent = '£' + m.toLocaleString('en-GB') + ' / month';
-  yearly.textContent = '≈ £' + (m * 12).toLocaleString('en-GB') + ' a year';
-  demos.style.setProperty('--fill', ((d - 2) / 18 * 100) + '%');
-}
-demos.addEventListener('input', calc); calc();
+// earnings calculator removed at Paula's request 2026-11-17
 </script>
 </body>
 </html>
