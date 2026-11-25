@@ -433,7 +433,8 @@ footer{border-top:1px solid var(--line);padding:54px 0 70px;background:#050606}
       <p>Pull up a chair. Paula keeps a meat-first diary and a keto diary, each with its own
         recipes and Thermomix tricks.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;max-width:840px">
+    <style>.tables{display:grid;grid-template-columns:1fr minmax(180px,280px) 1fr;gap:24px;align-items:center}.tables .tm7{display:flex;justify-content:center}.tables .tm7 img{width:100%;max-width:280px;height:auto;filter:drop-shadow(0 0 40px rgba(47,189,130,.25))}@media(max-width:899px){.tables{grid-template-columns:1fr}.tables .tm7 img{max-width:200px}}</style>
+    <div class="tables">
       <a class="post rv" href="carnivore/">
         <div class="ph"><img src="assets/steak.webp" alt="Ribeye steak searing in a cast-iron pan" loading="lazy"></div>
         <div class="tx"><span class="tag">The Carnivore Table</span>
@@ -441,6 +442,7 @@ footer{border-top:1px solid var(--line);padding:54px 0 70px;background:#050606}
           <p>Why I eat meat first, bone broth, a week planned in an hour and the cheap cuts that do the work.</p>
           <span class="go">Enter the Carnivore Table →</span></div>
       </a>
+      <div class="tm7 rv"><img src="assets/tm7-key.webp" alt="The Thermomix TM7, glowing green in the dark" loading="lazy"></div>
       <a class="post rv" href="keto/">
         <div class="ph"><img src="assets/keto-bowl.svg" alt="Buttered cauliflower rice, creamy mushrooms, avocado and cheddar on a dark wooden table" loading="lazy"></div>
         <div class="tx"><span class="tag">The Keto Table</span>
