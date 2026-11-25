@@ -44,6 +44,7 @@
   var st=document.createElement('style');
   st.textContent='#festoon{position:absolute;left:0;top:70px;width:100%;height:96px;pointer-events:none;z-index:30;overflow:hidden}#festoon svg{display:block;width:100%;height:100%;overflow:visible}'
    +'#festoon .b{transform-box:fill-box;transform-origin:50% 0}'
+   +(document.querySelector('header.hero')?'header.hero .hero-in{padding-top:110px}':'section#table{padding-top:clamp(150px,16vw,200px)!important}')
    +(reduce?'':'@keyframes ftw{0%,100%{opacity:1}50%{opacity:.55}}#festoon .b{animation:ftw 3.2s ease-in-out infinite}');
   document.head.appendChild(st);
   var d=document.createElement('div');d.id='festoon';d.setAttribute('aria-hidden','true');
