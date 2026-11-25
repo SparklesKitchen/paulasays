@@ -34,3 +34,32 @@
   else{requestAnimationFrame(frame);
     document.addEventListener('visibilitychange',function(){if(document.hidden){run=false}else if(!run){run=true;last=performance.now();requestAnimationFrame(frame)}});}
 })();
+
+/* festoon lights: homepage hero and the two table pages */
+(function(){
+  if(window.__lights)return;
+  if(!document.querySelector('header.hero')&&!document.querySelector('section#table'))return;
+  window.__lights=1;
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var st=document.createElement('style');
+  st.textContent='#festoon{position:absolute;left:0;top:70px;width:100%;height:96px;pointer-events:none;z-index:30;overflow:hidden}#festoon svg{display:block;width:100%;height:100%;overflow:visible}'
+   +'#festoon .b{transform-box:fill-box;transform-origin:50% 0}'
+   +(reduce?'':'@keyframes ftw{0%,100%{opacity:1}50%{opacity:.55}}#festoon .b{animation:ftw 3.2s ease-in-out infinite}');
+  document.head.appendChild(st);
+  var d=document.createElement('div');d.id='festoon';d.setAttribute('aria-hidden','true');
+  document.body.insertBefore(d,document.body.firstChild);
+  var cols=['#e5483b','#f2b84b','#3fbf7f','#4aa3e0','#f08a3c'];
+  function build(){
+    var W=d.clientWidth||innerWidth,sw=W<700?150:250,sag=W<700?20:30,n=Math.ceil(W/sw),w=W/n;
+    var p='<svg viewBox="0 0 '+W+' 96" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">',wire='M0 4',bulbs='',k=0;
+    for(var i=0;i<n;i++){var x0=i*w;wire+=' Q'+(x0+w/2)+' '+(4+sag*2)+' '+(x0+w)+' 4';
+      var per=W<700?4:5;
+      for(var j=1;j<=per;j++){var t=j/(per+1),bx=x0+w*t,by=4+2*sag*t*(1-t)*2;
+        var c=cols[k%cols.length];
+        p+='';bulbs+='<g class="b" style="animation-delay:'+((k*0.37)%3.2).toFixed(2)+'s"><rect x="'+(bx-2.5)+'" y="'+(by)+'" width="5" height="6" rx="1" fill="#2a2a2a"/><ellipse cx="'+bx+'" cy="'+(by+16)+'" rx="6.5" ry="10" fill="'+c+'" style="filter:drop-shadow(0 0 7px '+c+')"/><ellipse cx="'+(bx-2)+'" cy="'+(by+12)+'" rx="1.8" ry="3" fill="#fff" opacity=".55"/></g>';k++;}
+    }
+    p+='<path d="'+wire+'" fill="none" stroke="#1c1c1c" stroke-width="2"/>'+bulbs+'</svg>';
+    d.innerHTML=p;
+  }
+  build();var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(build,150)});
+})();
