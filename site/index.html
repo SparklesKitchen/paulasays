@@ -206,7 +206,8 @@ dialog#filmbox .close:hover{border-color:var(--ember);color:var(--ember)}
   radial-gradient(1200px 500px at 85% -5%,rgba(224,122,69,.09),transparent 60%),
   linear-gradient(180deg,#0a0908,#0b0806 55%,var(--bg))}
 #table .sec-head h2 em{color:var(--ember)}
-.posts{display:flex;gap:20px;overflow-x:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth}
+.posts{display:flex;gap:20px;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-ms-overflow-style:none;padding:10px 0 34px;margin:-10px 0 -34px;scroll-snap-type:x mandatory;scroll-behavior:smooth}
+.posts::-webkit-scrollbar{display:none;width:0;height:0}
 .posts .post{flex:0 0 calc((100% - 40px)/3);scroll-snap-align:start}
 @media(max-width:899px){.posts .post{flex:0 0 100%}}
 .posts-nav{display:flex;justify-content:flex-end;gap:12px;margin-top:22px}
