@@ -207,8 +207,13 @@ dialog#filmbox .close:hover{border-color:var(--ember);color:var(--ember)}
   radial-gradient(1200px 500px at 85% -5%,rgba(224,122,69,.09),transparent 60%),
   linear-gradient(180deg,#0a0908,#0b0806 55%,var(--bg))}
 #table .sec-head h2 em{color:var(--ember)}
-.posts{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x proximity;padding:4px 2px 22px;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:rgba(224,122,69,.5) transparent}
-.posts .post{flex:0 0 max(260px,calc((100% - 40px)/3));scroll-snap-align:start}
+.posts{display:flex;gap:20px;overflow-x:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth}
+.posts .post{flex:0 0 calc((100% - 40px)/3);scroll-snap-align:start}
+@media(max-width:899px){.posts .post{flex:0 0 100%}}
+.posts-nav{display:flex;justify-content:flex-end;gap:12px;margin-top:22px}
+.posts-nav button{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--ink);font-size:20px;cursor:pointer;transition:all .35s var(--ease)}
+.posts-nav button:hover:not(:disabled){border-color:var(--ember);background:var(--ember-soft);color:var(--ember)}
+.posts-nav button:disabled{opacity:.3;cursor:default}
 .post{display:block;text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:20px;
   overflow:hidden;background:linear-gradient(180deg,#12100d,#0c0a08);
   transition:transform .6s var(--ease),border-color .4s,box-shadow .6s var(--ease)}
@@ -457,6 +462,7 @@ footer{border-top:1px solid var(--line);padding:54px 0 70px;background:#050606}
           <span class="go">Pull up a chair →</span></div>
       </a>
     </div>
+    <div class="posts-nav"><button type="button" id="postsPrev" aria-label="Previous posts">←</button><button type="button" id="postsNext" aria-label="Next posts">→</button></div>
     <p class="smallprint">The Carnivore Table is Paula's personal food diary. It's lived experience,
       not medical advice — talk to your GP before changing how you eat.</p>
   </div>
@@ -512,8 +518,8 @@ footer{border-top:1px solid var(--line);padding:54px 0 70px;background:#050606}
       <div class="steps rv">
         <div class="step"><span class="n">1</span><div><b>Start with £350</b>
           <span>Your starter investment — and it starts working its way back to you with your very first sale.</span></div></div>
-        <div class="step"><span class="n">2</span><div><b>Six sales, and the TM7 is yours — free</b>
-          <span>Your first six sales pay off your own Thermomix entirely.</span></div></div>
+        <div class="step"><span class="n">2</span><div><b>Four sales, and the TM7 is yours — free</b>
+          <span>Your first four sales pay off your own Thermomix entirely.</span></div></div>
         <div class="step"><span class="n">3</span><div><b>£150 commission per sale after that</b>
           <span>Plus team-building bonuses as you grow. Demos are dinners — you were cooking anyway.</span></div></div>
         <div class="step"><span class="n">4</span><div><b>Trained by Paula, personally</b>
@@ -608,6 +614,18 @@ function selectMode(i) {
 selectMode(0);
 
 // earnings calculator removed at Paula's request 2026-11-17
+
+// carnivore table arrows
+(function(){
+  const row=document.querySelector('.posts'),prev=document.getElementById('postsPrev'),next=document.getElementById('postsNext');
+  if(!row||!prev||!next)return;
+  const step=()=>{const c=row.children[0];return c?c.getBoundingClientRect().width+20:row.clientWidth};
+  const per=()=>Math.max(1,Math.round((row.clientWidth+20)/step()));
+  const upd=()=>{prev.disabled=row.scrollLeft<4;next.disabled=row.scrollLeft+row.clientWidth>=row.scrollWidth-4};
+  prev.addEventListener('click',()=>row.scrollBy({left:-step()*per(),behavior:'smooth'}));
+  next.addEventListener('click',()=>row.scrollBy({left:step()*per(),behavior:'smooth'}));
+  row.addEventListener('scroll',upd);window.addEventListener('resize',upd);upd();
+})();
 </script>
 </body>
 </html>
