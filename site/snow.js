@@ -5,7 +5,7 @@
   c.setAttribute('aria-hidden','true');
   c.style.cssText='position:fixed;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:40;';
   document.body.appendChild(c);
-  var x=c.getContext('2d'),W=0,H=0,dpr=Math.min(window.devicePixelRatio||1,2),flakes=[],pile=reduce?14:4,maxPile=26,run=true,last=0,t0=Date.now();
+  var x=c.getContext('2d'),W=0,H=0,dpr=Math.min(window.devicePixelRatio||1,2),flakes=[],pile=reduce?16:10,maxPile=32,run=true,last=0,t0=Date.now();
   function size(){W=innerWidth;H=innerHeight;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);}
   size();addEventListener('resize',size);
   var N=W<700?22:46;
