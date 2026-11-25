@@ -207,7 +207,8 @@ dialog#filmbox .close:hover{border-color:var(--ember);color:var(--ember)}
   radial-gradient(1200px 500px at 85% -5%,rgba(224,122,69,.09),transparent 60%),
   linear-gradient(180deg,#0a0908,#0b0806 55%,var(--bg))}
 #table .sec-head h2 em{color:var(--ember)}
-.posts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:20px}
+.posts{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x proximity;padding:4px 2px 22px;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:rgba(224,122,69,.5) transparent}
+.posts .post{flex:0 0 min(340px,82vw);scroll-snap-align:start}
 .post{display:block;text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:20px;
   overflow:hidden;background:linear-gradient(180deg,#12100d,#0c0a08);
   transition:transform .6s var(--ease),border-color .4s,box-shadow .6s var(--ease)}
@@ -446,6 +447,13 @@ footer{border-top:1px solid var(--line);padding:54px 0 70px;background:#050606}
         <div class="tx"><span class="tag">Nº 003 · The system</span>
           <h3>A week of carnivore, planned in one hour</h3>
           <p>Sunday, 60 minutes, one machine — and every meal until Friday already knows what it is. The plan I actually use.</p>
+          <span class="go">Pull up a chair →</span></div>
+      </a>
+      <a class="post rv" href="blog/carnivore-on-a-budget/">
+        <div class="ph"><img src="assets/2-budget-cuts.webp" alt="Beef mince, beef shin, liver and butter on butcher paper" loading="lazy"></div>
+        <div class="tx"><span class="tag">Nº 004 · The budget</span>
+          <h3>Carnivore on a budget: the cheap cuts that do the work</h3>
+          <p>Mince, shin, liver and butter. The shopping list that skips the ribeye bill, and what the Thermomix does with it.</p>
           <span class="go">Pull up a chair →</span></div>
       </a>
     </div>
