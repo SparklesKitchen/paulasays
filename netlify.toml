@@ -1,5 +1,5 @@
 [build]
-  command = "echo 'static site - no build needed'"
+  command = "python3 -c \"import json,base64;d=json.load(open('icons.json'));[open('site/'+k,'wb').write(base64.b64decode(v)) for k,v in d.items()]\" || echo icons-skipped"
   publish = "site"
 
 [[headers]]
