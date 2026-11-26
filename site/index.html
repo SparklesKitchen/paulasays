@@ -287,6 +287,15 @@ footer{border-top:1px solid var(--line);padding:54px 0 70px;background:#050606}
 .rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+.sav{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media(max-width:900px){.sav{grid-template-columns:1fr}}
+.sav .card{padding:34px 30px;display:flex;flex-direction:column;gap:12px}
+.sav .big{font-family:'Fraunces',serif;font-weight:380;font-size:clamp(46px,5.4vw,76px);line-height:1;color:var(--ember);letter-spacing:-.02em}
+.sav .unit{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);font-weight:400}
+.sav p{color:var(--dim);line-height:1.65;font-size:15.5px}
+.sav .src{margin-top:auto;font-size:12.5px;color:var(--green);text-decoration:none;letter-spacing:.02em;border-bottom:1px solid rgba(47,189,130,.3);padding-bottom:2px;align-self:flex-start}
+.sav .src:hover{color:var(--ink)}
+.savnote{margin-top:28px;max-width:760px;font-size:12.5px;line-height:1.6;color:var(--dim);opacity:.8}
 </style>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 </head>
@@ -375,6 +384,28 @@ footer{border-top:1px solid var(--line);padding:54px 0 70px;background:#050606}
       <p class="ktx"><span class="tg">Thermomix</span> like never before.<small>The all new <span class="tg">TM7</span>.</small></p>
       <img src="assets/tm7-key.webp" alt="The all new Thermomix TM7, glowing green in the dark" loading="lazy">
     </figure>
+  </div>
+</section>
+
+<section id="savings" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="kicker ember">The savings</div>
+      <h2>Where the money <em>quietly goes.</em></h2>
+      <p>Some honest UK numbers, with their sources. A Thermomix® can help you plan, weigh and batch-cook, which is where the savings can start.</p>
+    </div>
+    <div class="sav">
+      <div class="card rv"><div class="big">£1,000</div><div class="unit">a year, per household of four</div>
+        <p>The average family of four spends around £1,000 a year on food that ends up in the bin. Cooking only what you need, and using up what you buy, can help bring that down.</p>
+        <a class="src" href="https://www.wrap.ngo/media-centre/press-releases/household-food-waste-levels-threaten-uks-carbon-reduction-ambitions" target="_blank" rel="noopener">Source: WRAP, household food waste in the UK, 2022 data (published July 2025)</a></div>
+      <div class="card rv"><div class="big">£9.87</div><div class="unit">per person, per week, on food eaten out</div>
+        <p>That is about £513 a year each (£9.87 × 52). Swapping some of those meals for something fresh from your own kitchen can cost less per portion.</p>
+        <a class="src" href="https://www.gov.uk/government/statistics/family-food-fye-2025/family-food-fye-2025" target="_blank" rel="noopener">Source: Defra, Family Food FYE 2025 (April 2024 to March 2025)</a></div>
+      <div class="card rv"><div class="big">Your sum</div><div class="unit">the gadgets you could retire</div>
+        <p>Add up the blender, food processor, steamer or rice cooker you would no longer need to buy or replace. Paula can walk through it with you at a free demo, using your own kitchen.</p>
+        <a class="src" href="#demo">Book a free demo ↓</a></div>
+    </div>
+    <p class="savnote rv">These are examples drawn from published UK figures, not guarantees. What you save depends on how you shop, cook and eat. The figures are not official Thermomix® or Vorwerk figures. Paula is an Independent Thermomix® Advisor and Area Leader.</p>
   </div>
 </section>
 
